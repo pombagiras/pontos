@@ -1,162 +1,135 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pontos de Pombagira</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pontos de Pombagira</title>
 
-  <style>
-    body {
-      margin: 0;
-      background: #0b0b0b;
-      color: #f2eaea;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
+body {
+    background: #0a0000;
+    color: #eee;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
 
-    .topo {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-    .topo img {
-      width: 80px;
-      border-radius: 50%;
-      margin-bottom: 15px;
-    }
+header img {
+    width: 90px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
 
-    h1 {
-      font-size: 1.6rem;
-      color: #b3002d;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
+h1 {
+    font-size: 1.8rem;
+    color: #d4af37;
+    margin-bottom: 10px;
+}
 
-    .mensagem {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 1rem;
-    }
+.subtitle {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
 
-    .lista-videos {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
+.container {
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
 
-    .video {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 8px;
-      border: 1px solid #2a2a2a;
-    }
+.video-card {
+    background: #120000;
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 14px;
+    padding: 12px;
+}
 
-    .video div {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-    }
+.video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+}
 
-    footer {
-      margin-top: 50px;
-      border-top: 1px solid #2a2a2a;
-      padding-top: 20px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #999;
-    }
-  </style>
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-title {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #d4af37;
+    text-align: center;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
-
-  <div class="topo">
+<header>
     <img src="https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/Al%C3%AA%20(3)%20(3)%20(1).png">
-    <h1>Pontos de Pombagira</h1>
-  </div>
+    <h1>PONTOS DE POMBAGIRA</h1>
+    <p class="subtitle">
+        Toque e conecte-se aos sons sagrados.  
+        Ouça com o coração aberto.
+    </p>
+</header>
 
-  <div class="mensagem">
-    Não escute como quem passa.<br>
-    Escute como quem se entrega.<br><br>
-    <strong>Cada ponto é um chamado.</strong><br>
-    Ouça com o coração aberto.
-  </div>
+<div class="container" id="videos"></div>
 
-  <div class="lista-videos">
-    <!-- players -->
-    <div class="video"><div id="p1"></div></div>
-    <div class="video"><div id="p2"></div></div>
-    <div class="video"><div id="p3"></div></div>
-    <div class="video"><div id="p4"></div></div>
-    <div class="video"><div id="p5"></div></div>
-    <div class="video"><div id="p6"></div></div>
-    <div class="video"><div id="p7"></div></div>
-    <div class="video"><div id="p8"></div></div>
-    <div class="video"><div id="p9"></div></div>
-    <div class="video"><div id="p10"></div></div>
-    <div class="video"><div id="p11"></div></div>
-    <div class="video"><div id="p12"></div></div>
-    <div class="video"><div id="p13"></div></div>
-    <div class="video"><div id="p14"></div></div>
-    <div class="video"><div id="p15"></div></div>
-    <div class="video"><div id="p16"></div></div>
-    <div class="video"><div id="p17"></div></div>
-    <div class="video"><div id="p18"></div></div>
-    <div class="video"><div id="p19"></div></div>
-  </div>
-
-  <footer>
-    © Todos os direitos reservados<br>
-    Alexia Melusine
-  </footer>
-
-</div>
-
-<!-- YouTube API -->
-<script src="https://www.youtube.com/iframe_api"></script>
+<footer>
+    © Todos os direitos reservados — Alexia Melusine  
+</footer>
 
 <script>
-  const videoIds = [
-    "t3YhMcwURzY","qN935nP6tEw","YxQ24LupgKg","CoVIhTrUe3w",
-    "Ti_-EusVSj8","JYCfOQtEz50","3krnGT0s0bQ","2-NjMF-6GzI",
-    "wo_D21rsYAE","gHxlvf2glU0","doPc-mLAH1g","hH1pNWlM2zE",
-    "coi-tvUWwmc","dCNo7XIyMQ0","_dsEhYxLRHo","Tp1MB84YL2s",
-    "P4mC3avgs3Y","GcRdBJzBMa8","1rrmBzp9Cfo"
-  ];
+const videos = [
+'t3YhMcwURzY','qN935nP6tEw','YxQ24LupgKg','CoVIhTrUe3w','Ti_-EusVSj8',
+'JYCfOQtEz50','3krnGT0s0bQ','2-NjMF-6GzI','wo_D21rsYAE','gHxlvf2glU0',
+'doPc-mLAH1g','hH1pNWlM2zE','coi-tvUWwmc','dCNo7XIyMQ0','_dsEhYxLRHo',
+'Tp1MB84YL2s','P4mC3avgs3Y','GcRdBJzBMa8','1rrmBzp9Cfo'
+];
 
-  let players = [];
+const container = document.getElementById('videos');
+let players = [];
 
-  function onYouTubeIframeAPIReady() {
-    videoIds.forEach((id, index) => {
-      players[index] = new YT.Player(`p${index + 1}`, {
-        videoId: id,
-        events: {
-          onStateChange: onPlayerStateChange
-        }
-      });
-    });
-  }
+videos.forEach((id, index) => {
+    const card = document.createElement('div');
+    card.className = 'video-card';
 
-  function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.PLAYING) {
-      players.forEach(player => {
-        if (player !== event.target) {
-          player.pauseVideo();
-        }
-      });
-    }
-  }
+    card.innerHTML = `
+        <div class="video-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/${id}?enablejsapi=1"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="video-title">Ponto ${String(index+1).padStart(2,'0')}</div>
+    `;
+
+    container.appendChild(card);
+});
 </script>
 
 </body>
