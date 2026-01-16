@@ -1,157 +1,215 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pontos de Pombagira</title>
+  <meta charset="UTF-8">
+  <title>Pontos de Pombagira</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Raleway:wght@400&display=swap" rel="stylesheet">
 
-body{
-    background:#0a0000;
-    color:#eee;
-    font-family:Arial,sans-serif;
-    padding:16px;
-}
+  <style>
+    body {
+      margin: 0;
+      background: #0b0000;
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+      padding: 20px;
+    }
 
-header{
-    text-align:center;
-    margin-bottom:22px;
-}
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-header img{
-    width:72px;
-    border-radius:50%;
-    margin-bottom:8px;
-}
+    header img {
+      width: 90px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 2px solid #b30000;
+    }
 
-h1{
-    font-size:1.4rem;
-    color:#d4af37;
-}
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      color: #d4af37;
+      margin: 10px 0;
+    }
 
-.subtitle{
-    font-size:.8rem;
-    opacity:.8;
-    line-height:1.4;
-    margin-top:6px;
-}
+    .subtitle {
+      font-size: 0.9rem;
+      color: #b30000;
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
-.container{
-    max-width:720px;
-    margin:auto;
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-}
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
 
-.video-card{
-    background:#120000;
-    border:1px solid rgba(212,175,55,.25);
-    border-radius:12px;
-    padding:10px;
-}
+    .ponto {
+      background: rgba(20, 0, 0, 0.85);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 12px;
+      padding: 15px;
+    }
 
-.video-wrapper{
-    width:100%;
-    aspect-ratio:16/9;
-    border-radius:10px;
-    overflow:hidden;
-    background:#000;
-}
+    .ponto h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      color: #d4af37;
+      margin-bottom: 5px;
+    }
 
-iframe{
-    width:100%;
-    height:100%;
-    border:none;
-}
+    .ponto small {
+      display: block;
+      font-size: 0.8rem;
+      color: #ccc;
+      margin-bottom: 12px;
+    }
 
-.video-title{
-    text-align:center;
-    margin-top:8px;
-    font-size:.75rem;
-    color:#d4af37;
-    opacity:.85;
-}
+    iframe {
+      width: 100%;
+      height: 215px;
+      border: none;
+      border-radius: 8px;
+    }
 
-footer{
-    margin:32px 0 10px;
-    text-align:center;
-    font-size:.7rem;
-    opacity:.6;
-}
-</style>
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.75rem;
+      color: #777;
+    }
+
+    @media (min-width: 700px) {
+      .container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-<img src="https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/Al%C3%AA%20(3)%20(3)%20(1).png">
-<h1>PONTOS DE POMBAGIRA</h1>
-<p class="subtitle">
-Toque e conecte-se aos sons sagrados.<br>
-Ouça com o coração aberto.
-</p>
+  <img src="https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/Al%C3%AA%20(3)%20(3)%20(1).png" alt="Alexia Melusine">
+  <h1>PONTOS DE POMBAGIRA</h1>
+  <p class="subtitle">
+    Toque e conecte-se aos sons sagrados.  
+    Ouça com o coração aberto. A alma reconhece.
+  </p>
 </header>
 
-<div class="container" id="videos"></div>
+<div class="container">
+
+  <div class="ponto">
+    <h2>Pombagira Maria Padilha</h2>
+    <small>Comando e realeza. A palavra que governa.</small>
+    <iframe src="https://www.youtube.com/embed/t3YhMcwURzY"></iframe>
+  </div>
+
+  <div class="ponto">
+    <h2>Pombagira Maria Mulambo</h2>
+    <small>Cura profunda na humildade do chão.</small>
+    <iframe src="https://www.youtube.com/embed/qN935nP6tEw"></iframe>
+  </div>
+
+  <div class="ponto">
+    <h2>Pombagira Maria Quitéria</h2>
+    <small>Guerra justa e proteção afiada.</small>
+    <iframe src="https://www.youtube.com/embed/YxQ24LupgKg"></iframe>
+  </div>
+
+  <div class="ponto">
+    <h2>Pombagira Rosa Caveira</h2>
+    <small>Justiça que atravessa a morte.</small>
+    <iframe src="https://www.youtube.com/embed/CoVIhTrUe3w"></iframe>
+  </div>
+
+  <div class="ponto">
+    <h2>Pombagira Dama da Noite</h2>
+    <small>Mistério e oculto sob o véu.</small>
+    <iframe src="https://www.youtube.com/embed/Ti_-EusVSj8"></iframe>
+  </div>
+
+  <div class="ponto">
+    <h2>Pombagira Sete Saias</h2>
+    <small>Alegria intensa que gira o destino.</small>
+    <iframe src="https://www.youtube.com/embed/JYCfOQtEz50"></iframe>
+  </div>
+
+  <div class="ponto">
+    <h2>Pombagira Cigana</h2>
+    <small>Liberdade que abre caminhos.</small>
+    <iframe src="https://www.youtube.com/embed/3krnGT0s0bQ"></iframe>
+  </div>
+
+  <div class="ponto">
+    <h2>Pombagira Maria Navalha</h2>
+    <small>A rua ensina. A lâmina decide.</small>
+    <iframe src="https://www.youtube.com/embed/2-NjMF-6GzI"></iframe>
+  </div>
+
+  <div class="ponto">
+    <h2>Pombagira da Praia</h2>
+    <small>Emoção lavada nas águas.</small>
+    <iframe src="https://www.youtube.com/embed/wo_D21rsYAE"></iframe>
+  </div>
+
+  <div class="ponto">
+    <h2>Pombagira Maria Farrapo</h2>
+    <small>Sanidade no limite do caos mental.</small>
+    <iframe src="https://www.youtube.com/embed/hH1pNWlM2zE"></iframe>
+  </div>
+
+  <div class="ponto">
+    <h2>Pombagira Menina</h2>
+    <small>Renovação que nasce inocente.</small>
+    <iframe src="https://www.youtube.com/embed/coi-tvUWwmc"></iframe>
+  </div>
+
+  <div class="ponto">
+    <h2>Pombagira da Figueira</h2>
+    <small>Raiz antiga, memória da terra.</small>
+    <iframe src="https://www.youtube.com/embed/dCNo7XIyMQ0"></iframe>
+  </div>
+
+  
+
+  <div class="ponto">
+    <h2>Pombagira Sete Encruzilhadas</h2>
+    <small>Todos os caminhos se encontram.</small>
+    <iframe src="https://www.youtube.com/embed/Tp1MB84YL2s"></iframe>
+  </div>
+
+  <div class="ponto">
+    <h2>Pombagira da Lua</h2>
+    <small>Ciclos, sangue e silêncio.</small>
+    <iframe src="https://www.youtube.com/embed/P4mC3avgs3Y"></iframe>
+  </div>
+
+  <div class="ponto">
+    <h2>Pombagira das Trevas</h2>
+    <small>O poder que não pede permissão.</small>
+    <iframe src="https://www.youtube.com/embed/GcRdBJzBMa8"></iframe>
+  </div>
+
+  <div class="ponto">
+    <h2>Pombagira do Fogo</h2>
+    <small>Transformação que consome.</small>
+    <iframe src="https://www.youtube.com/embed/1rrmBzp9Cfo"></iframe>
+  </div>
+
+</div>
 
 <footer>
-© Todos os direitos reservados — Alexia Melusine
+  © Todos os direitos reservados — Alexia Melusine  
+  <br>Ouça com respeito. Sinta com a alma.
 </footer>
-
-<script>
-const videoIds=[
-'t3YhMcwURzY','qN935nP6tEw','YxQ24LupgKg','CoVIhTrUe3w','Ti_-EusVSj8',
-'JYCfOQtEz50','3krnGT0s0bQ','2-NjMF-6GzI','wo_D21rsYAE','gHxlvf2glU0',
-'doPc-mLAH1g','hH1pNWlM2zE','coi-tvUWwmc','dCNo7XIyMQ0','_dsEhYxLRHo',
-'Tp1MB84YL2s','P4mC3avgs3Y','GcRdBJzBMa8','1rrmBzp9Cfo'
-];
-
-const container=document.getElementById('videos');
-let currentIframe=null;
-
-videoIds.forEach((id,i)=>{
-    const card=document.createElement('div');
-    card.className='video-card';
-
-    const wrapper=document.createElement('div');
-    wrapper.className='video-wrapper';
-
-    const iframe=document.createElement('iframe');
-    iframe.src=`https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&playsinline=1`;
-    iframe.allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
-    iframe.allowFullscreen=true;
-
-    wrapper.appendChild(iframe);
-
-    const title=document.createElement('div');
-    title.className='video-title';
-    title.innerText=`Ponto ${String(i+1).padStart(2,'0')}`;
-
-    card.appendChild(wrapper);
-    card.appendChild(title);
-    container.appendChild(card);
-
-    iframe.addEventListener('load',()=>{
-        iframe.contentWindow?.postMessage(
-            '{"event":"command","func":"pauseVideo","args":""}',
-            '*'
-        );
-    });
-
-    iframe.addEventListener('mouseenter',()=>{
-        if(currentIframe && currentIframe!==iframe){
-            currentIframe.contentWindow.postMessage(
-                '{"event":"command","func":"pauseVideo","args":""}',
-                '*'
-            );
-        }
-        currentIframe=iframe;
-    });
-});
-</script>
 
 </body>
 </html>
