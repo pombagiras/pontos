@@ -6,81 +6,62 @@
 <title>Pontos de Pombagira</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    background:#0a0000;
+    color:#eee;
+    font-family:Arial,sans-serif;
+    padding:20px;
 }
 
-body {
-    background: #0a0000;
-    color: #eee;
-    font-family: Arial, sans-serif;
-    padding: 20px;
+header{text-align:center;margin-bottom:20px}
+header img{width:90px;border-radius:50%;margin-bottom:10px}
+h1{color:#d4af37;font-size:1.8rem}
+.subtitle{font-size:.9rem;opacity:.8}
+
+.controls{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin:20px 0;
+    flex-wrap:wrap;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 30px;
+.controls button{
+    background:#120000;
+    color:#d4af37;
+    border:1px solid rgba(212,175,55,.4);
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
 }
 
-header img {
-    width: 90px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+.controls button:hover{
+    background:#1a0000;
 }
 
-h1 {
-    font-size: 1.8rem;
-    color: #d4af37;
-    margin-bottom: 10px;
+.container{
+    max-width:900px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
 }
 
-.subtitle {
-    font-size: 0.9rem;
-    opacity: 0.8;
+.video-wrapper{
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:12px;
+    overflow:hidden;
+    background:#000;
 }
 
-.container {
-    max-width: 900px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 25px;
-}
-
-.video-card {
-    background: #120000;
-    border: 1px solid rgba(212,175,55,0.3);
-    border-radius: 14px;
-    padding: 12px;
-}
-
-.video-wrapper {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.video-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-.video-title {
-    margin-top: 10px;
-    font-size: 0.85rem;
-    color: #d4af37;
-    text-align: center;
-}
-
-footer {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 0.75rem;
-    opacity: 0.7;
+footer{
+    margin-top:40px;
+    text-align:center;
+    font-size:.75rem;
+    opacity:.7;
 }
 </style>
 </head>
@@ -88,48 +69,90 @@ footer {
 <body>
 
 <header>
-    <img src="https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/Al%C3%AA%20(3)%20(3)%20(1).png">
-    <h1>PONTOS DE POMBAGIRA</h1>
-    <p class="subtitle">
-        Toque e conecte-se aos sons sagrados.  
-        Ouça com o coração aberto.
-    </p>
+<img src="https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/Al%C3%AA%20(3)%20(3)%20(1).png">
+<h1>PONTOS DE POMBAGIRA</h1>
+<p class="subtitle">Toque e conecte-se aos sons sagrados</p>
 </header>
+
+<div class="controls">
+<button onclick="prev()">⏮ Anterior</button>
+<button onclick="play()">▶ Play</button>
+<button onclick="stop()">⏹ Stop</button>
+<button onclick="next()">⏭ Próximo</button>
+<button onclick="playAll()">🔥 Tocar Todas</button>
+</div>
 
 <div class="container" id="videos"></div>
 
-<footer>
-    © Todos os direitos reservados — Alexia Melusine  
-</footer>
+<footer>© Todos os direitos reservados — Alexia Melusine</footer>
+
+<script src="https://www.youtube.com/iframe_api"></script>
 
 <script>
-const videos = [
+const videoIds=[
 't3YhMcwURzY','qN935nP6tEw','YxQ24LupgKg','CoVIhTrUe3w','Ti_-EusVSj8',
 'JYCfOQtEz50','3krnGT0s0bQ','2-NjMF-6GzI','wo_D21rsYAE','gHxlvf2glU0',
 'doPc-mLAH1g','hH1pNWlM2zE','coi-tvUWwmc','dCNo7XIyMQ0','_dsEhYxLRHo',
 'Tp1MB84YL2s','P4mC3avgs3Y','GcRdBJzBMa8','1rrmBzp9Cfo'
 ];
 
-const container = document.getElementById('videos');
-let players = [];
+let players=[];
+let current=0;
 
-videos.forEach((id, index) => {
-    const card = document.createElement('div');
-    card.className = 'video-card';
+function onYouTubeIframeAPIReady(){
+    const container=document.getElementById('videos');
 
-    card.innerHTML = `
-        <div class="video-wrapper">
-            <iframe
-                src="https://www.youtube.com/embed/${id}?enablejsapi=1"
-                allow="autoplay; encrypted-media"
-                allowfullscreen>
-            </iframe>
-        </div>
-        <div class="video-title">Ponto ${String(index+1).padStart(2,'0')}</div>
-    `;
+    videoIds.forEach((id,i)=>{
+        const div=document.createElement('div');
+        div.className='video-wrapper';
+        div.id='player-'+i;
+        container.appendChild(div);
 
-    container.appendChild(card);
-});
+        const player=new YT.Player(div.id,{
+            videoId:id,
+            events:{
+                onStateChange:e=>{
+                    if(e.data===YT.PlayerState.PLAYING){
+                        current=i;
+                        players.forEach((p,idx)=>{
+                            if(idx!==i)p.pauseVideo();
+                        });
+                    }
+                }
+            }
+        });
+
+        players.push(player);
+    });
+}
+
+function play(){
+    players[current].playVideo();
+}
+
+function stop(){
+    players.forEach(p=>p.stopVideo());
+}
+
+function next(){
+    stop();
+    current=(current+1)%players.length;
+    play();
+}
+
+function prev(){
+    stop();
+    current=(current-1+players.length)%players.length;
+    play();
+}
+
+// 🔥 MODO RITUAL — toca todas (muted para burlar bloqueio)
+function playAll(){
+    players.forEach(p=>{
+        p.mute();
+        p.playVideo();
+    });
+}
 </script>
 
 </body>
